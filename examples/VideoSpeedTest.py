@@ -100,7 +100,7 @@ def mkData():
                 scale = 1024
                 mx = 2**16
             elif dtype[0] == 'float':
-                dt = np.float
+                dt = np.float64
                 loc = 1.0
                 scale = 0.1
                 mx = 1.0

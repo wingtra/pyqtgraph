@@ -44,7 +44,7 @@ def test_types():
     tree.setParameters(param)
 
     all_objs = {
-        'int0': 0, 'int':7, 'float': -0.35, 'bigfloat': 1e129, 'npfloat': np.float(5), 
+        'int0': 0, 'int':7, 'float': -0.35, 'bigfloat': 1e129, 'npfloat': np.float64(5), 
         'npint': np.int(5),'npinf': np.inf, 'npnan': np.nan, 'bool': True, 
         'complex': 5+3j, 'str': 'xxx', 'unicode': asUnicode('µ'), 
         'list': [1,2,3], 'dict': {'1': 2}, 'color': pg.mkColor('k'), 
