@@ -5,7 +5,7 @@ from .ParameterItem import ParameterItem
 from ..widgets.SpinBox import SpinBox
 from ..widgets.ColorButton import ColorButton
 from ..colormap import ColorMap
-from .. import pixmaps as pixmaps
+# from .. import pixmaps as pixmaps # WINGTRA: Do not use pixmaps
 from .. import functions as fn
 import os, sys
 from ..pgcollections import OrderedDict
@@ -48,7 +48,7 @@ class WidgetParameterItem(ParameterItem):
         self.defaultBtn.setFixedWidth(20)
         self.defaultBtn.setFixedHeight(20)
         modDir = os.path.dirname(__file__)
-        self.defaultBtn.setIcon(QtGui.QIcon(pixmaps.getPixmap('default')))
+        self.defaultBtn.setIcon(QtGui.QIcon()) # WINGTRA: QtGui.QIcon(Do not use pixmaps.getPixmap('default'))
         self.defaultBtn.clicked.connect(self.defaultClicked)
         
         self.displayLabel = QtGui.QLabel()
