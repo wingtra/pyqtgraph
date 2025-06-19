@@ -14,6 +14,8 @@ class ButtonItem(GraphicsObject):
             self.setImageFile(imageFile)
         elif pixmap is not None:
             self.setPixmap(pixmap)
+        else: # WINGTRA: Handle the case where no pixmap is provided
+            self.pixmap = None
             
         if width is not None:
             s = float(width) / self.pixmap.width()
@@ -51,8 +53,12 @@ class ButtonItem(GraphicsObject):
         
     def paint(self, p, *args):
         p.setRenderHint(p.Antialiasing)
-        p.drawPixmap(0, 0, self.pixmap)
+        if self.pixmap: # WINGTRA: Handle the case where no pixmap is provided
+            p.drawPixmap(0, 0, self.pixmap)
         
     def boundingRect(self):
-        return QtCore.QRectF(self.pixmap.rect())
+        if self.pixmap: # WINGTRA: Handle the case where no pixmap is provided
+            return QtCore.QRectF(self.pixmap.rect())
+        else:
+            return QtCore.QRectF(0, 0, 0, 0)
         
